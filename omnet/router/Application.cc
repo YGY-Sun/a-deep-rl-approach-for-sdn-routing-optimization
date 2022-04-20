@@ -14,6 +14,9 @@
 //
 
 #include "Application.h"
+#include <iostream>
+
+using namespace std;
 
 
 Define_Module(Application);
@@ -96,7 +99,7 @@ void Application::handleMessage(cMessage *msg)
             scheduleAt(simTime() + etime, msg);
         }
         else {
-            EV << "END simulation" << endl;
+            cout << "END simulation" << endl;
         }
     }
 
@@ -110,7 +113,7 @@ void Application::handleMessage(cMessage *msg)
         interArrival->setLambda(1.0/lambda);
         if (dest != id)
             scheduleAt(simTime() + 1.0/lambda, interArrival);
-        ev << "Ratio: " << flowRatio << "   lambda: " << lambda << endl;
+        cout << "Ratio: " << flowRatio << "   lambda: " << lambda << endl;
 
         delete data;
 

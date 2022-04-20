@@ -14,6 +14,10 @@
 //
 
 #include "Routing.h"
+#include <iostream>
+
+using namespace std;
+
 
 
 Define_Module(Routing);
@@ -47,13 +51,13 @@ void Routing::handleMessage(cMessage *msg)
     DataPacket *data = check_and_cast<DataPacket *>(msg);
 
     if (id == data->getDstNode()) {
-        ev << this->getFullPath() << "  Message received" << endl;
+        cout << this->getFullPath() << "  Message received" << endl;
         simtime_t delayPaquet= simTime() - data->getCreationTime();
         Statistic::instance()->setDelay(simTime(), data->getSrcNode(), id, delayPaquet.dbl());
         delete msg;
     }
     else if (data->getTtl() == 0) {
-        ev << this->getFullPath() << "  TTL = 0. Msg deleted" << endl;
+        cout << this->getFullPath() << "  TTL = 0. Msg deleted" << endl;
         Statistic::instance()->setLost(simTime(), data->getSrcNode(), data->getDstNode());
         delete msg;
     }
@@ -62,7 +66,7 @@ void Routing::handleMessage(cMessage *msg)
         data->setTtl(data->getTtl()-1);
         send(msg, "out", destPort);
 
-        ev << "Routing: " << this->getFullPath() << "  Source: " << data->getSrcNode() << " Dest: " << data->getDstNode()
+        cout << "Routing: " << this->getFullPath() << "  Source: " << data->getSrcNode() << " Dest: " << data->getDstNode()
                 << " using port: "<< destPort << endl;
 
     }

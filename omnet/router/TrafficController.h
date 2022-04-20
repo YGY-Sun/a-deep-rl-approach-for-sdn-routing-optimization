@@ -19,6 +19,7 @@
 #include <omnetpp.h>
 #include "ControlPacket_m.h"
 using namespace std;
+using namespace omnetpp;
 #include <iostream>
 #include <fstream>
 #include <string>
