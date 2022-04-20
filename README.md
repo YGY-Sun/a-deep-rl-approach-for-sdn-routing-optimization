@@ -1,5 +1,5 @@
 # A Deep-Reinforcement Learning Approach for Software-Defined Networking Routing Optimization
-
+# YGY
 ###### [1709.07080](https://arxiv.org/abs/1709.07080): Giorgio Stampa, Marta Arias, David Sanchez-Charles, Victor Muntes-Mulero, Albert Cabellos
 
 In this paper we design and evaluate a Deep-Reinforcement Learning agent that optimizes routing. Our agent adapts automatically to current traffic conditions and proposes tailored configurations that attempt to minimize the network delay. Experiments show very promising performance. Moreover, this approach provides important operational advantages with respect to traditional optimization algorithms.
